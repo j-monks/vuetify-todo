@@ -15,7 +15,7 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" link>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" item.link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -33,7 +33,7 @@
     </v-app-bar>
 
     <v-main>
-      <!--  -->
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -43,8 +43,8 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: "Todo", icon: "mdi-view-dashboard" },
-      { title: "About", icon: "mdi-help-box" },
+      { title: "Todo", icon: "mdi-view-dashboard", to: "/"},
+      { title: "About", icon: "mdi-help-box", to: "/about"},
     ],
   }),
 };
